@@ -12,4 +12,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ /* Import the Main component */
+ import Main from './components/Main';
+
 require('./components/Example');

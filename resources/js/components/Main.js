@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
  
 /* An example React component */
 class Main extends Component {
-    constructor() {
-   
-        super();
+    constructor(props) {
+        super(props);
+
         //Initialize the state in the constructor
         this.state = {
-            reviews: [],
-        }
+            reviews: []
+        };
       }
       /*componentDidMount() is a lifecycle method
        * that gets called after the component is rendered
@@ -41,10 +41,28 @@ class Main extends Component {
     render() {
         return (
             <div>
+                <div>
+                    <h1>Add a review</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <label> Name 
+                        { /*On every keystroke, the handeInput method is invoked */ }
+                            <input type="text" onChange={(e)=>this.handleInput('name',e)} />
+                        </label>
+                        
+                        <label> Comment 
+                            <input type="text" onChange={(e)=>this.handleInput('feedback',e)} />
+                        </label>
+                        
+                
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
+                <div>
                 <h3>All Reviews</h3>
                 <ul>
-                { this.renderReviews() }
-              </ul> 
+                    { this.renderReviews() }
+                </ul> 
+              </div>
             </div>
         );
     }

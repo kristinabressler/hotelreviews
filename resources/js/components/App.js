@@ -35,11 +35,8 @@ class App extends Component {
                 console.log('from handle submit', response);
                 // set state
                 this.setState({
-                    reviews: [response.data, ...this.state.reviews]
-                });
-                // then clear the value of textarea
-                this.setState({
-                    name: ''
+                    tasks: [response.data, ...this.state.reviews],
+                    name: ""
                 });
             });
     }

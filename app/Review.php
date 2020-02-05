@@ -8,7 +8,7 @@ class Review extends Model
 {
     //
     
-    protected $fillable = ['feedback'];
+    protected $fillable = ['name'];
     
     public function user() {
         return $this->belongsTo(User::class);

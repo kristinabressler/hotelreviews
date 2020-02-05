@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from "react-router-dom";
  
 /* An example React component */
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderTasks = this.renderTasks.bind(this);
+        this.renderReviews = this.renderReviews.bind(this);
       }
       // handle change
     handleChange(e) {

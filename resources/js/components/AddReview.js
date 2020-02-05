@@ -27,7 +27,7 @@ class AddReview extends Component {
      
     return(
       <div> 
-        <h2> Add new review </h2>
+        <h2> Add new review testing</h2>
         <div> 
         <form onSubmit={this.handleSubmit}>
            

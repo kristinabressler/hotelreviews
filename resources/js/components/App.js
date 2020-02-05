@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Review from './Review';
-import AddReview from './AddReview';
-import { Link } from 'react-router-dom';
  
 /* An example React component */
 class App extends Component {
@@ -63,7 +60,7 @@ class App extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card">
-                            <div className="card-header">Create Review</div>
+                            <div className="card-header">Add Review Main</div>
                             <div className="card-body">
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
@@ -79,6 +76,7 @@ class App extends Component {
                                     </button>
                                 </form>
                                 <hr />
+                                <h1>Reviews List</h1>
                                 {this.renderReviews()}
                             </div>
                         </div>

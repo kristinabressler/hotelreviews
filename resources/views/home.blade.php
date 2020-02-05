@@ -21,6 +21,6 @@
     </div>
 </div> -->
 
-    <div id="root">testing....123</div>
+    <div id="root"></div>
 
 @endsection

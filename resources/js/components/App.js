@@ -35,7 +35,7 @@ class App extends Component {
                 console.log('from handle submit', response);
                 // set state
                 this.setState({
-                    tasks: [response.data, ...this.state.reviews],
+                    reviews: [response.data, ...this.state.reviews],
                     name: ""
                 });
             });

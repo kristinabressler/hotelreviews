@@ -28,6 +28,7 @@ class Main extends Component {
                 //Fetched product is stored in the state
                 this.setState({ reviews });
             });
+            console.log("is it working?");
       }
      
      renderReviews() {

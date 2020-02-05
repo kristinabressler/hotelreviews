@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 class AddReview extends Component {
  
   constructor(props) {
@@ -40,12 +42,12 @@ class AddReview extends Component {
         <h2> Add new review </h2>
         <div> 
         <form onSubmit={this.handleSubmit}>
-          <label> Title: 
+          <label> Name: 
            { /*On every keystroke, the handeInput method is invoked */ }
             <input type="text" onChange={(e)=>this.handleInput('name',e)} />
           </label>
            
-          <label> Description: 
+          <label> Review: 
             <input type="text" onChange={(e)=>this.handleInput('feedback',e)} />
           </label>
            

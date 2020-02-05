@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Product from './Product';
+import AddProduct from './AddProduct';
  
 /* An example React component */
 class Main extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         //Initialize the state in the constructor
         this.state = {
-            reviews: []
+            reviews: [],
+            currentReview: null
         };
+        this.handleAddReview = this.handleAddReview.bind(this);
       }
       /*componentDidMount() is a lifecycle method
        * that gets called after the component is rendered
@@ -32,30 +36,52 @@ class Main extends Component {
                 /* When using list you need to specify a key
                  * attribute that is unique for each list item
                 */
-                <li key={review.id} >
-                    { review.title } 
-                </li>      
+               <li onClick={
+                () =>this.handleClick(review)} key={review.id} >
+                { review.name } 
+            </li>    
             );
         })
       }
+
+      handleClick(review) {
+        //handleClick is used to set the state
+        this.setState({currentReview:review});
+       
+      }
+    
+      handleAddReview(review) {
+     
+        /*Fetch API for post request */
+        fetch( 'api/reviews/', {
+            method:'post',
+            /* headers are important*/
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            
+            body: JSON.stringify(review)
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then( data => {
+           
+            this.setState((prevState)=> ({
+                reviews: prevState.reviews.concat(data),
+                currentReview : data
+            }))
+        })
+     //update the state of reviews and currentReview
+      }  
+
     render() {
         return (
             <div>
                 <div>
                     <h1>Add a review</h1>
-                    <form onSubmit={this.handleSubmit}>
-                        <label> Name 
-                        { /*On every keystroke, the handeInput method is invoked */ }
-                            <input type="text" onChange={(e)=>this.handleInput('name',e)} />
-                        </label>
-                        
-                        <label> Comment 
-                            <input type="text" onChange={(e)=>this.handleInput('feedback',e)} />
-                        </label>
-                        
-                
-                        <input type="submit" value="Submit" />
-                    </form>
+                    <AddReview onAdd={this.handleAddReview} /> 
                 </div>
                 <div>
                 <h3>All Reviews</h3>

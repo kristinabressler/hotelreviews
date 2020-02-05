@@ -5,10 +5,8 @@ class AddReview extends Component {
        /* Initialize the state. */
        this.state = {
           newReview: {
-              title: '',
-              description: '',
-              price: 0,
-              availability: 0
+              name: '',
+              feedback: ''
           }
         }
      
@@ -44,11 +42,11 @@ class AddReview extends Component {
         <form onSubmit={this.handleSubmit}>
           <label> Title: 
            { /*On every keystroke, the handeInput method is invoked */ }
-            <input type="text" onChange={(e)=>this.handleInput('title',e)} />
+            <input type="text" onChange={(e)=>this.handleInput('name',e)} />
           </label>
            
           <label> Description: 
-            <input type="text" onChange={(e)=>this.handleInput('description',e)} />
+            <input type="text" onChange={(e)=>this.handleInput('feedback',e)} />
           </label>
            
  

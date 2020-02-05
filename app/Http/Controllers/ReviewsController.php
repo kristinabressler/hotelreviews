@@ -11,7 +11,11 @@ class ReviewsController extends Controller
 	public function __construct() {
 		$this->middleware('auth');
     }
-    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request, Review $review) {
 		// get all the reviews based on current user id
 		$allReviews = $review->whereIn('user_id', $request->user())->with('user');
@@ -21,16 +25,6 @@ class ReviewsController extends Controller
 			'reviews' => $reviews,
 		]);
 	}
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-        return Review::all();
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -49,7 +43,7 @@ class ReviewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReviewRequest $request)
     {
         //
         // validate

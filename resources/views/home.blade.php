@@ -20,7 +20,7 @@
         </div>
     </div>
 </div> -->
-<div class="container">
+
     <div id="root"></div>
-</div>
+
 @endsection

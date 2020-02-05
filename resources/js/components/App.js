@@ -52,6 +52,17 @@ class App extends Component {
             </div>
         ));
     }
+    //get all the reviews from backend
+    getReviews(){
+        axios.get('/reviews').then(response => this.setState({
+            reviews: [...response.data.reviews]
+        }));
+    }
+
+    //lifecycle method
+    componentWillMount(){
+        this.getReviews();
+    }
 
 
     render() {
@@ -65,6 +76,8 @@ class App extends Component {
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <textarea
+                                            onChange={this.handleChange}
+                                            value = {this.state.name}
                                             className="form-control"
                                             rows="5"
                                             placeholder="Comment"

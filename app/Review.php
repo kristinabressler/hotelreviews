@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     //
-    protected $fillable = [
-        'name',
-        'img',
-        'feedback',
-        'added'       
-    ];
+    
+    protected $fillable = ['feedback'];
+    
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

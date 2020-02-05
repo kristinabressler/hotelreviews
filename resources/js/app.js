@@ -13,6 +13,7 @@ require('./bootstrap');
  */
 
  /* Import the Main component */
- import Main from './components/Main';
+ import Main from './components/App';
 
-require('./components/Example');
+// require('./components/Example');
+require('./index');

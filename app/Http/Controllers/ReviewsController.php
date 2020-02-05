@@ -7,6 +7,20 @@ use Illuminate\Http\Request;
 
 class ReviewsController extends Controller
 {
+    // apply auth middleware so only authenticated users have access
+	public function __construct() {
+		$this->middleware('auth');
+    }
+    
+    public function index(Request $request, Review $review) {
+		// get all the reviews based on current user id
+		$allReviews = $review->whereIn('user_id', $request->user())->with('user');
+		$reviews = $allReviews->orderBy('created_at', 'desc')->take(10)->get();
+		// return json response
+		return response()->json([
+			'reviews' => $reviews,
+		]);
+	}
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +40,7 @@ class ReviewsController extends Controller
     public function create()
     {
         //
-        return $review;
+        
     }
 
     /**
@@ -38,9 +52,16 @@ class ReviewsController extends Controller
     public function store(Request $request)
     {
         //
-        $review = Review::create($request->all());
- 
-        return response()->json($review, 201);
+        // validate
+		$this->validate($request, [
+			'name' => 'required|max:255',
+		]);
+		// create a new review based on user reviews relationship
+		$review = $request->user()->reviews()->create([
+			'name' => $request->name,
+		]);
+		// return review with user object
+		return response()->json($review->with('user')->find($review->id));
     }
 
     /**
@@ -52,7 +73,7 @@ class ReviewsController extends Controller
     public function show(Review $review)
     {
         //
-        return $review;
+        
     }
 
     /**
@@ -76,9 +97,6 @@ class ReviewsController extends Controller
     public function update(Request $request, Review $review)
     {
         //
-        $review->update($request->all());
- 
-        return response()->json($review, 200);
     }
 
     /**
@@ -90,8 +108,5 @@ class ReviewsController extends Controller
     public function destroy(Review $review)
     {
         //
-        $review->delete();
- 
-        return response()->json(null, 204);
     }
 }

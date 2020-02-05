@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Product from './Product';
-import AddProduct from './AddProduct';
+import Review from './Review';
+import AddReview from './AddReview';
  
 /* An example React component */
 class Main extends Component {

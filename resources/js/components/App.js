@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from "react-router-dom";
  
 /* An example React component */
 class App extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         //Initialize the state in the constructor
         this.state = {
@@ -103,6 +102,6 @@ export default App;
 /* The if statement is required so as to Render the component on pages that have a div with an ID of "root";  
 */
  
-if (document.getElementById('root')) {
-    ReactDOM.render(<App />, document.getElementById('root'));
-}
+// if (document.getElementById('root')) {
+//     ReactDOM.render(<App />, document.getElementById('root'));
+// }

@@ -13,7 +13,7 @@ require('./bootstrap');
  */
 
  /* Import the App component */
-import App from './components/App';
+// import App from './components/App';
 
 // require('./components/Example');
-// require('./index');
+require('./index');

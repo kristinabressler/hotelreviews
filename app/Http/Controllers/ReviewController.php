@@ -29,7 +29,7 @@ class ReviewController extends Controller
         
     }
 
-    public function store(ReviewRequest $request)
+    public function store(Request $request)
     {
         //
         // validate

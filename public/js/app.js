@@ -68890,8 +68890,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-/* Import the Main component */
-//  import Main from './components/App';
+/* Import the App component */
+// import App from './components/App';
 // require('./components/Example');
 
 
@@ -68992,12 +68992,12 @@ var App =
 function (_Component) {
   _inherits(App, _Component);
 
-  function App() {
+  function App(props) {
     var _this;
 
     _classCallCheck(this, App);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this)); //Initialize the state in the constructor
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props)); //Initialize the state in the constructor
 
     _this.state = {
       name: "",
@@ -69005,7 +69005,7 @@ function (_Component) {
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.renderTasks = _this.renderTasks.bind(_assertThisInitialized(_this));
+    _this.renderReviews = _this.renderReviews.bind(_assertThisInitialized(_this));
     return _this;
   } // handle change
 
@@ -69031,12 +69031,8 @@ function (_Component) {
         console.log('from handle submit', response); // set state
 
         _this2.setState({
-          reviews: [response.data].concat(_toConsumableArray(_this2.state.reviews))
-        }); // then clear the value of textarea
-
-
-        _this2.setState({
-          name: ''
+          reviews: [response.data].concat(_toConsumableArray(_this2.state.reviews)),
+          name: ""
         });
       });
     }
@@ -69051,6 +69047,24 @@ function (_Component) {
           className: "media-body"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.name)));
       });
+    } //get all the reviews from backend
+
+  }, {
+    key: "getReviews",
+    value: function getReviews() {
+      var _this3 = this;
+
+      axios.get('/reviews').then(function (response) {
+        return _this3.setState({
+          reviews: _toConsumableArray(response.data.reviews)
+        });
+      });
+    } //lifecycle method
+
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.getReviews();
     }
   }, {
     key: "render",
@@ -69072,6 +69086,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        onChange: this.handleChange,
+        value: this.state.name,
         className: "form-control",
         rows: "5",
         placeholder: "Comment",
@@ -69090,7 +69106,7 @@ function (_Component) {
 /* The if statement is required so as to Render the component on pages that have a div with an ID of "root";  
 */
 // if (document.getElementById('root')) {
-//     ReactDOM.render(<Main />, document.getElementById('root'));
+//     ReactDOM.render(<App />, document.getElementById('root'));
 // }
 
 /***/ }),

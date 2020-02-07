@@ -68,7 +68,6 @@ class App extends Component {
 
 
     render() {
-        console.log({review.user});
         return (
             <div className="container">
                 <div className="row justify-content-center">

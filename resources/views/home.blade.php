@@ -22,5 +22,6 @@
 </div> -->
 
     <div id="root"></div>
+    @dump(review)
 
 @endsection

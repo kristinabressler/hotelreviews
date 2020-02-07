@@ -47,7 +47,7 @@ class App extends Component {
                     <p>{review.name}</p>
                     <div className="text-muted">
                             <br />
-                            by {review.user.name}
+                            by {review.user[name]}
                             {review.updated_at}
                     </div>
                 </div>

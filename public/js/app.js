@@ -68948,166 +68948,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!****************************************!*\
   !*** ./resources/js/components/App.js ***!
   \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-/* An example React component */
-
-var App =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(App, _Component);
-
-  function App(props) {
-    var _this;
-
-    _classCallCheck(this, App);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props)); //Initialize the state in the constructor
-
-    _this.state = {
-      name: "",
-      reviews: []
-    };
-    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.renderReviews = _this.renderReviews.bind(_assertThisInitialized(_this));
-    return _this;
-  } // handle change
-
-
-  _createClass(App, [{
-    key: "handleChange",
-    value: function handleChange(e) {
-      this.setState({
-        name: e.target.value
-      });
-      console.log('onChange', this.state.name);
-    }
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      var _this2 = this;
-
-      // stop browser's default behaviour of reloading on form submit
-      e.preventDefault();
-      axios.post('/reviews', {
-        name: this.state.name
-      }).then(function (response) {
-        console.log('from handle submit', response); // set state
-
-        _this2.setState({
-          reviews: [response.data].concat(_toConsumableArray(_this2.state.reviews)),
-          name: ""
-        });
-      });
-    }
-  }, {
-    key: "renderReviews",
-    value: function renderReviews() {
-      return this.state.reviews.map(function (review) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: review.id,
-          className: "media"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "media-body"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.name)));
-      });
-    } //get all the reviews from backend
-
-  }, {
-    key: "getReviews",
-    value: function getReviews() {
-      var _this3 = this;
-
-      axios.get('/reviews').then(function (response) {
-        return _this3.setState({
-          reviews: _toConsumableArray(response.data.reviews)
-        });
-      });
-    } //lifecycle method
-
-  }, {
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      this.getReviews();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Add Review Main"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        onChange: this.handleChange,
-        value: this.state.name,
-        className: "form-control",
-        rows: "5",
-        placeholder: "Comment",
-        required: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit",
-        className: "btn btn-primary"
-      }, "Create Review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Reviews List"), this.renderReviews())))));
-    }
-  }]);
-
-  return App;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (App);
-/* The if statement is required so as to Render the component on pages that have a div with an ID of "root";  
-*/
-// if (document.getElementById('root')) {
-//     ReactDOM.render(<App />, document.getElementById('root'));
-// }
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/resources/js/components/App.js: Unexpected token, expected \",\" (71:27)\n\n\u001b[0m \u001b[90m 69 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 70 | \u001b[39m    render() {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 71 | \u001b[39m        console\u001b[33m.\u001b[39mlog({review\u001b[33m.\u001b[39muser})\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 72 | \u001b[39m        \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m 73 | \u001b[39m            \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"container\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 74 | \u001b[39m                \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"row justify-content-center\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n    at Object.raise (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:7013:17)\n    at Object.unexpected (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:8384:16)\n    at Object.expect (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:8370:28)\n    at Object.parseObj (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9954:14)\n    at Object.parseExprAtom (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9582:28)\n    at Object.parseExprAtom (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:4116:20)\n    at Object.parseExprSubscripts (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9219:23)\n    at Object.parseMaybeUnary (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9199:21)\n    at Object.parseExprOps (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9067:23)\n    at Object.parseMaybeConditional (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9040:23)\n    at Object.parseMaybeAssign (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9000:21)\n    at Object.parseExprListItem (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:10295:18)\n    at Object.parseCallExpressionArguments (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9404:22)\n    at Object.parseSubscript (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9310:31)\n    at Object.parseSubscripts (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9240:19)\n    at Object.parseExprSubscripts (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9229:17)\n    at Object.parseMaybeUnary (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9199:21)\n    at Object.parseExprOps (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9067:23)\n    at Object.parseMaybeConditional (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9040:23)\n    at Object.parseMaybeAssign (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:9000:21)\n    at Object.parseExpression (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:8950:23)\n    at Object.parseStatementContent (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:10787:23)\n    at Object.parseStatement (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:10658:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:11234:25)\n    at Object.parseBlockBody (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:11221:10)\n    at Object.parseBlock (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:11205:10)\n    at Object.parseFunctionBody (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:10220:24)\n    at Object.parseFunctionBodyAndFinish (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:10190:10)\n    at Object.parseMethod (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:10160:10)\n    at Object.pushClassMethod (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:11638:30)\n    at Object.parseClassMemberWithIsStatic (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:11555:12)\n    at Object.parseClassMember (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:11497:10)\n    at withTopicForbiddingContext (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:11452:14)\n    at Object.withTopicForbiddingContext (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:10533:14)\n    at Object.parseClassBody (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:11429:10)\n    at Object.parseClass (/Users/kristinabressler/Documents/IronHack/work2live/hotelreviews/node_modules/@babel/parser/lib/index.js:11403:22)");
 
 /***/ }),
 
@@ -69125,12 +68969,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_App__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 
 if (document.getElementById('root')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('root'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_2___default.a, null), document.getElementById('root'));
 }
 
 /***/ }),

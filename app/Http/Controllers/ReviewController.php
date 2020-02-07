@@ -14,7 +14,8 @@ class ReviewController extends Controller
 
     public function index(Request $request, Review $review) {
 		// get all the reviews based on current user id
-		$allReviews = $review->whereIn('user_id', $request->user())->with('user');
+        // $allReviews = $review->whereIn('user_id', $request->user())->with('user');
+        $allReviews = $review->where('user_id', $request->user()->id)->with('user');
 		$reviews = $allReviews->orderBy('created_at', 'desc')->take(20)->get();
 		// return json response
 		return response()->json([

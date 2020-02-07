@@ -65,7 +65,7 @@ class App extends Component {
     }
 
     //lifecycle method
-    componentWillMount(){
+    componentDidMount(){
         this.getReviews();
     }
 

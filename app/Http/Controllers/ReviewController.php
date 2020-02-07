@@ -15,7 +15,7 @@ class ReviewController extends Controller
     public function index(Request $request, Review $review) {
 		// get all the reviews based on current user id
 		$allReviews = $review->whereIn('user_id', $request->user())->with('user');
-		$reviews = $allReviews->orderBy('created_at', 'desc')->take(10)->get();
+		$reviews = $allReviews->orderBy('created_at', 'desc')->take(20)->get();
 		// return json response
 		return response()->json([
 			'reviews' => $reviews,
@@ -59,6 +59,10 @@ class ReviewController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $input = $request->all();
+		$review = Review::findOrFail($id);
+		$review->update($input);
+		return response()->json($review->with('user')->find($review->id));
     }
 
     public function destroy($id)

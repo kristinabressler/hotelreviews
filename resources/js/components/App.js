@@ -52,6 +52,7 @@ class App extends Component {
                     </div>
                 </div>
             </div>
+            console.log({review.user});
         ));
     }
     //get all the reviews from backend

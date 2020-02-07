@@ -45,6 +45,14 @@ class App extends Component {
             <div key={review.id} className="media">
                 <div className="media-body">
                     <p>{review.name}</p>
+                    <span className="text-muted">
+                            <br />
+                            by {review.user.name} |{" "}
+                            {review.updated_at
+                                .split(" ")
+                                .slice(1)
+                                .join(" ")}
+                        </span>
                 </div>
             </div>
         ));

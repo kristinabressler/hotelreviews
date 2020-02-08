@@ -74,8 +74,8 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    <img src="/public/images/work2liveLogo.jpg" alt="" />
+                <div class="m-b-md">
+                    <img src="{require('/images/work2liveLogo.jpg')}" alt="" />
                 </div>
 
                 <div>

@@ -69042,7 +69042,7 @@ function (_Component) {
       return this.state.reviews.map(function (review) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: review.id,
-          className: "media"
+          className: "media innercard"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "media-body"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -69078,26 +69078,27 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-8"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
+        className: "review_card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Add Review Main"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChange,
         value: this.state.name,
         className: "form-control",
-        rows: "5",
         placeholder: "Comment",
         required: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "btn_align"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
-        className: "btn btn-primary"
-      }, "Create Review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Reviews List"), this.renderReviews())))));
+        className: "btn red_btn"
+      }, "Submit"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reviews_list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Reviews"), this.renderReviews()))))));
     }
   }]);
 

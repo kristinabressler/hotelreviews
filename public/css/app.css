@@ -1,3 +1,8 @@
+mix.styles([
+    'public/css/vendor/normalize.css',
+    'public/css/vendor/videojs.css'
+], 'public/css/all.css');
+
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!

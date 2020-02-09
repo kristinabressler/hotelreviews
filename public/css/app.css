@@ -31,18 +31,18 @@
    border-color: #d84c55;
  }
  .btn_align {
-   position: relative;
-   display: flex;
-   justify-content: right;
- }
- .reviews_list {
-   background-color: #f4f4f6;
-   border-radius: 0.25rem;
- }
- .innercard {
-   background-color: #fff;
-   border-radius: 0.25rem;
- }
+  position: relative;
+  display: flex;
+  justify-content: right;
+}
+.reviews_list {
+  background-color: #f4f4f6;
+  border-radius: 0.25rem;
+}
+.innercard {
+  background-color: #fff;
+  border-radius: 0.25rem;
+}
 
 :root {
   --blue: #3490dc;
@@ -2371,7 +2371,7 @@ pre code {
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #f0e9e9;
+  border: 1px solid #ced4da;
   border-radius: 0.25rem;
   -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -5276,6 +5276,8 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
 
 .card > hr {

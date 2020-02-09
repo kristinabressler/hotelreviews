@@ -143,7 +143,7 @@
                         </form>
                     </div>
                 </div>
-                    <div>
+                    <div class="welcome_register">
                         <a href="{{ route('register') }}">Register</a>
                     </div>
                     </div>

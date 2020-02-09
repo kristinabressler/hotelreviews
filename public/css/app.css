@@ -19,6 +19,9 @@
    width: 100%;
    height: auto;
  }
+ .welcome_register {
+   margin: 10px 0;
+ }
 
 :root {
   --blue: #3490dc;

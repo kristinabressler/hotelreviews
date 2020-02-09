@@ -42,7 +42,7 @@ class App extends Component {
 
     renderReviews() {
         return this.state.reviews.map(review => (
-            <div key={review.id} className="media">
+            <div key={review.id} className="media innercard">
                 <div className="media-body">
                     <p>{review.name}</p>
                     <span className="text-muted">
@@ -76,26 +76,27 @@ class App extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card">
-                            <div className="card-header">Add Review Main</div>
                             <div className="card-body">
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
-                                        <textarea
+                                        <input
                                             onChange={this.handleChange}
                                             value = {this.state.name}
                                             className="form-control"
-                                            rows="5"
                                             placeholder="Comment"
                                             required
                                         />
                                     </div>
-                                    <button type="submit" className="btn btn-primary">
-                                        Create Review
+                                    <div className="btn_align">
+                                    <button type="submit" className="btn red_btn">
+                                        Submit
                                     </button>
+                                    </div>
                                 </form>
-                                <hr />
-                                <h1>Reviews List</h1>
-                                {this.renderReviews()}
+                                <div className="reviews_list">
+                                    <h1>Reviews</h1>
+                                    {this.renderReviews()}
+                                </div>
                             </div>
                         </div>
                     </div>

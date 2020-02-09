@@ -75,7 +75,7 @@
 
             <div class="content">
                 <div class="m-b-md">
-                    <img src={require("/public/images/work2liveLogo.jpg")} alt="" />
+                    <img src="/public/images/work2liveLogo.jpg" alt="" />
                 </div>
 
                 <div>

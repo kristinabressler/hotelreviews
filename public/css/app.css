@@ -15,12 +15,15 @@
    width: 70%;
    margin: 0 auto;
  }
- .work2live_logo img {
+ .work2live_logo img, .navbar_logo img {
    width: 100%;
    height: auto;
  }
  .welcome_register {
    margin: 10px 0;
+ }
+ .navbar_logo {
+   width: 50%;
  }
 
 :root {

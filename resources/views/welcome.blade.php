@@ -82,7 +82,6 @@
                     <h2>Please login to leave a review.</h2>
                     <div>
                         <div class="card">
-                        <div class="card-header">{{ __('Login') }}</div>
 
                         <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -128,8 +127,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
+                            <div class="form-group row mb-0 welcome_login">
+                                <div class="col-md-8">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
                                     </button>
@@ -143,10 +142,10 @@
                             </div>
                         </form>
                     </div>
+                </div>
                     <div>
                         <a href="{{ route('register') }}">Register</a>
                     </div>
-                </div>
                     </div>
                 </div>
             </div>

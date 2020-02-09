@@ -11,6 +11,14 @@
  .welcome_login {
    justify-content: center;
  }
+ .work2live_logo {
+   width: 70%;
+   margin: 0 auto;
+ }
+ .work2live_logo img {
+   width: 100%;
+   height: auto;
+ }
 
 :root {
   --blue: #3490dc;

@@ -74,7 +74,7 @@
             @endif
 
             <div class="content">
-                <div class="m-b-md">
+                <div class="m-b-md work2live_logo">
                     <img src="/images/work2liveLogo.jpg" alt="" />
                 </div>
 

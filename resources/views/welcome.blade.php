@@ -11,6 +11,7 @@
 
        
         <link href="/css/app.css" rel="stylesheet" type="text/css">
+        <link href="/resources/css/style.css" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>

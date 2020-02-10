@@ -45,15 +45,21 @@ class App extends Component {
         return this.state.reviews.map(review => (
             <div key={review.id} className="media innercard">
                 <div className="media-body">
-                    <p>{review.name}</p>
-                    <span className="text-muted">
-                            <br />
-                            by {review.user.name} |{" "}
+                    <div className="profile_box">
+                        <div className="profile_img">
+                        <img src="/images/profilepic.png" alt="" />
+                        </div>
+                        <div className="profile_data">
+                        <span className="text-muted">
+                            {review.user.name} |{" "}
                             {review.updated_at
                                 .split(" ")
                                 .slice(1)
                                 .join(" ")}
                         </span>
+                        </div>
+                    </div>
+                    <p>{review.name}</p>
                 </div>
             </div>
         ));
@@ -78,7 +84,7 @@ class App extends Component {
                     <div className="col-md-8">
                         <div className="review_card">
                             <div className="card-body">
-                                <form onSubmit={this.handleSubmit}>
+                                <form onSubmit={this.handleSubmit} className="comment_form">
                                     <div className="form-group">
                                         <input
                                             onChange={this.handleChange}

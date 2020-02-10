@@ -1,5 +1,8 @@
 
  /* Customized settings */
+ body {
+  background-color: #fff;
+ }
  .welcome_login {
   justify-content: center;
 }
@@ -15,7 +18,11 @@
   margin: 10px 0;
 }
 .navbar_logo {
-  width: 50%;
+  width: 250px;
+  height: auto;
+}
+.comment_form {
+  margin-bottom: 30px;
 }
 .red_btn {
   color: #fff;
@@ -41,9 +48,15 @@
 }
 .reviews_list {
  background-color: #f4f4f6;
- border-radius: 0.25rem;
+ border-radius: 0.75rem;
+ padding: 20px;
+}
+.reviews_list h1 {
+  margin-bottom: 40px;
 }
 .innercard {
  background-color: #fff;
- border-radius: 0.25rem;
+ border-radius: 0.75rem;
+ padding: 20px;
+ margin-bottom: 20px;
 }

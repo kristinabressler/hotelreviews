@@ -41,6 +41,29 @@ class App extends Component {
             });
     }
 
+    convertTime(timedata) {
+        let time = timedata.split(" ").slice(1).join(" ");
+        time = time.split(":");
+
+        let hours = Number(time[0]);
+        let minutes = Number(time[1]);
+
+        let timeValue;
+
+        if (hours > 0 && hours <= 12) {
+        timeValue= "" + hours;
+        } else if (hours > 12) {
+        timeValue= "" + (hours - 12);
+        } else if (hours == 0) {
+        timeValue= "12";
+        }
+
+        timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes; 
+        timeValue += (hours >= 12) ? " pm" : " am";  
+
+        return timeValue;
+    }
+
     renderReviews() {
         return this.state.reviews.map(review => (
             <div key={review.id} className="media innercard">
@@ -50,12 +73,14 @@ class App extends Component {
                         <img src="/images/profilepic.png" alt="" />
                         </div>
                         <div className="profile_data">
+                            <h3>{review.user.name}</h3>
+                            <br />
                         <span className="text-muted">
-                            {review.user.name} |{" "}
-                            {review.updated_at
+                            {/* {review.updated_at
                                 .split(" ")
                                 .slice(1)
-                                .join(" ")}
+                                .join(" ")} */}
+                                {this.convertTime(review.updated_at)}
                         </span>
                         </div>
                     </div>

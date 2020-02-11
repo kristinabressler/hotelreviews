@@ -10,7 +10,7 @@
   width: 70%;
   margin: 0 auto;
 }
-.work2live_logo img, .navbar_logo img {
+.work2live_logo img, .navbar_logo img, .profile_img img {
   width: 100%;
   height: auto;
 }
@@ -24,6 +24,9 @@
 .comment_form {
   margin-bottom: 30px;
 }
+.form-control {
+  border: 1px solid #fae3e3;
+}
 .red_btn {
   color: #fff;
   background-color: #d84c55;
@@ -32,7 +35,7 @@
 .btn_align {
  position: relative;
  display: flex;
- justify-content: right;
+ justify-content: flex-end;
 }
 .review_card {
  position: relative;
@@ -59,4 +62,12 @@
  border-radius: 0.75rem;
  padding: 20px;
  margin-bottom: 20px;
+}
+.profile_box {
+  display: flex;
+  margin-bottom: 10px;
+}
+.profile_img {
+  width: 60px;
+  height: 60px;
 }

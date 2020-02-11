@@ -69038,8 +69038,31 @@ function (_Component) {
       });
     }
   }, {
+    key: "convertTime",
+    value: function convertTime(timedata) {
+      var time = timedata.split(" ").slice(1).join(" ");
+      time = time.split(":");
+      var hours = Number(time[0]);
+      var minutes = Number(time[1]);
+      var timeValue;
+
+      if (hours > 0 && hours <= 12) {
+        timeValue = "" + hours;
+      } else if (hours > 12) {
+        timeValue = "" + (hours - 12);
+      } else if (hours == 0) {
+        timeValue = "12";
+      }
+
+      timeValue += minutes < 10 ? ":0" + minutes : ":" + minutes;
+      timeValue += hours >= 12 ? " pm" : " am";
+      return timeValue;
+    }
+  }, {
     key: "renderReviews",
     value: function renderReviews() {
+      var _this3 = this;
+
       return this.state.reviews.map(function (review) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: review.id,
@@ -69055,19 +69078,19 @@ function (_Component) {
           alt: ""
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "profile_data"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, review.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "text-muted"
-        }, review.user.name, " |", " ", review.updated_at.split(" ").slice(1).join(" ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.name)));
+        }, _this3.convertTime(review.updated_at)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.name)));
       });
     } //get all the reviews from backend
 
   }, {
     key: "getReviews",
     value: function getReviews() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('/reviews').then(function (response) {
-        return _this3.setState({
+        return _this4.setState({
           reviews: _toConsumableArray(response.data.reviews)
         });
       });

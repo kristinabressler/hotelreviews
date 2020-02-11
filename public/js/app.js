@@ -69046,9 +69046,18 @@ function (_Component) {
           className: "media innercard"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "media-body"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile_box"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile_img"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "/images/profilepic.png",
+          alt: ""
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile_data"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "text-muted"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "by ", review.user.name, " |", " ", review.updated_at.split(" ").slice(1).join(" "))));
+        }, review.user.name, " |", " ", review.updated_at.split(" ").slice(1).join(" ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.name)));
       });
     } //get all the reviews from backend
 
@@ -69083,7 +69092,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit
+        onSubmit: this.handleSubmit,
+        className: "comment_form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {

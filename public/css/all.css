@@ -24,8 +24,34 @@
 .comment_form {
   margin-bottom: 30px;
 }
+.form-group {
+  display: flex;
+}
+.fa-comment-dots {
+  /* padding: 10px; */
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: #fae3e3;
+  color: #d84c55;
+  min-width: 50px;
+  text-align: center;
+  border-radius: 0.25rem 0 0 0.25rem;
+}
 .form-control {
   border: 1px solid #fae3e3;
+  border-radius: 0 0.25rem 0.25rem 0;
+  outline: none;
+}
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fae3e3;
+  opacity: 1; /* Firefox */
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #fae3e3;
+}
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+  color: #fae3e3;
 }
 .red_btn {
   color: #fff;
@@ -54,7 +80,9 @@
  border-radius: 0.75rem;
  padding: 20px;
 }
-.reviews_list h1 {
+.review_header {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 40px;
 }
 .innercard {
@@ -65,9 +93,24 @@
 }
 .profile_box {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  align-items: center;
 }
 .profile_img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
 }
+.profile_data {
+  padding-left: 20px;
+}
+.profile_data h3 {
+  margin-bottom: 0px;
+}
+.media-body p {
+  margin-bottom: 0;
+}
+.toggle_btn {
+  background-color: transparent;
+  border: 0px;
+}
+

@@ -10,11 +10,15 @@ class App extends Component {
         //Initialize the state in the constructor
         this.state = {
             name: "",
-            reviews: []
+            reviews: [],
+            otherReviews: [],
+            open: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderReviews = this.renderReviews.bind(this);
+        this.toggleReviews = this.toggleReviews.bind(this);
+        // this.addReviews = this.addReviews.bind(this);
       }
       // handle change
     handleChange(e) {
@@ -35,18 +39,23 @@ class App extends Component {
                 console.log('from handle submit', response);
                 // set state
                 this.setState({
-                    reviews: [response.data, ...this.state.reviews],
+                    reviews: [response.data, ...this.state.reviews].slice(0,3),
                     name: ""
+                    // otherReviews: [response.data, ...this.state.otherReviews].slice(3)
                 });
             });
     }
 
     convertTime(timedata) {
-        let time = timedata.split(" ").slice(1).join(" ");
-        time = time.split(":");
 
-        let hours = Number(time[0]);
-        let minutes = Number(time[1]);
+        let date = new Date(timedata + ' UTC');
+        let time =  date.toTimeString();
+
+        let newtime = time.split(" ").slice(0, 1).join(" ");
+        newtime = newtime.split(":");
+
+        let hours = Number(newtime[0]);
+        let minutes = Number(newtime[1]);
 
         let timeValue;
 
@@ -74,12 +83,7 @@ class App extends Component {
                         </div>
                         <div className="profile_data">
                             <h3>{review.user.name}</h3>
-                            <br />
                         <span className="text-muted">
-                            {/* {review.updated_at
-                                .split(" ")
-                                .slice(1)
-                                .join(" ")} */}
                                 {this.convertTime(review.updated_at)}
                         </span>
                         </div>
@@ -92,9 +96,23 @@ class App extends Component {
     //get all the reviews from backend
     getReviews(){
         axios.get('/reviews').then(response => this.setState({
-            reviews: [...response.data.reviews]
+            reviews: [...response.data.reviews].slice(0,3),
+            otherReviews: [...response.data.reviews].slice(3)
         }));
     }
+    
+    // addReviews() {
+    //     let othersCloneReview = [...this.state.otherReviews]; 
+    //     let clone = [...this.state.reviews];
+    //     if(othersCloneReview) {
+    //         clone.concat(othersCloneReview);
+    //         }
+    //     this.setState({ open: !state.open, reviews: clone, otherReviews: othersCloneReview })
+    // }
+
+    toggleReviews() {
+        this.setState({open: !this.state.open});
+    }    
 
     //lifecycle method
     componentDidMount(){
@@ -111,6 +129,7 @@ class App extends Component {
                             <div className="card-body">
                                 <form onSubmit={this.handleSubmit} className="comment_form">
                                     <div className="form-group">
+                                        <i className="fas fa-comment-dots"></i>
                                         <input
                                             onChange={this.handleChange}
                                             value = {this.state.name}
@@ -126,8 +145,29 @@ class App extends Component {
                                     </div>
                                 </form>
                                 <div className="reviews_list">
+                                    <div className="review_header">
                                     <h1>Reviews</h1>
+                                    <button className="toggle_btn" onClick={this.toggleReviews}>{this.state.open ? 'Hide reviews' : 'See all'}</button>
+                                    </div>
                                     {this.renderReviews()}
+                                    {this.state.open && this.state.otherReviews.map(review =>(
+                                        <div key={review.id} className="media innercard">
+                                            <div className="media-body">
+                                                <div className="profile_box">
+                                                    <div className="profile_img">
+                                                    <img src="/images/profilepic.png" alt="" />
+                                                    </div>
+                                                    <div className="profile_data">
+                                                        <h3>{review.user.name}</h3>
+                                                    <span className="text-muted">
+                                                            {this.convertTime(review.updated_at)}
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                                <p>{review.name}</p>
+                                            </div>
+                                        </div>
+                                        ))}
                                 </div>
                             </div>
                         </div>

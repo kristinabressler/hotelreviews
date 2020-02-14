@@ -69875,8 +69875,8 @@ function (_Component) {
 
         _this2.setState({
           reviews: [response.data].concat(_toConsumableArray(_this2.state.reviews)).slice(0, 3),
-          name: "" // otherReviews: [response.data, ...this.state.otherReviews].slice(3)
-
+          name: "",
+          otherReviews: _toConsumableArray(_this2.state.reviews).slice(2).concat(_toConsumableArray(_this2.state.otherReviews))
         });
       });
     }
@@ -69940,15 +69940,7 @@ function (_Component) {
           otherReviews: _toConsumableArray(response.data.reviews).slice(3)
         });
       });
-    } // addReviews() {
-    //     let othersCloneReview = [...this.state.otherReviews]; 
-    //     let clone = [...this.state.reviews];
-    //     if(othersCloneReview) {
-    //         clone.concat(othersCloneReview);
-    //         }
-    //     this.setState({ open: !state.open, reviews: clone, otherReviews: othersCloneReview })
-    // }
-
+    }
   }, {
     key: "toggleReviews",
     value: function toggleReviews() {

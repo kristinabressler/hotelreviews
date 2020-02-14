@@ -40,8 +40,8 @@ class App extends Component {
                 // set state
                 this.setState({
                     reviews: [response.data, ...this.state.reviews].slice(0,3),
-                    name: ""
-                    // otherReviews: [response.data, ...this.state.otherReviews].slice(3)
+                    name: "",
+                    otherReviews: [...this.state.reviews].slice(2).concat([...this.state.otherReviews])
                 });
             });
     }
@@ -101,14 +101,6 @@ class App extends Component {
         }));
     }
     
-    // addReviews() {
-    //     let othersCloneReview = [...this.state.otherReviews]; 
-    //     let clone = [...this.state.reviews];
-    //     if(othersCloneReview) {
-    //         clone.concat(othersCloneReview);
-    //         }
-    //     this.setState({ open: !state.open, reviews: clone, otherReviews: othersCloneReview })
-    // }
 
     toggleReviews() {
         this.setState({open: !this.state.open});
